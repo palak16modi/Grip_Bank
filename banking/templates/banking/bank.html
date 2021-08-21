@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Banking System</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'banking/style.css' %}">
+</head>
+<body>
+    
+    <section class="header">
+        <div class="headleft">
+            <div>Basic Banking System</div>
+        </div>
+        <div class="headright">
+            <div class="links">
+                    <a href="{% url 'custdetails' %}">Customer Details</a>
+                    <a href="{% url 'moneytransfer' %}">Money Transfer</a>
+                    <a href="#aboutus">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="middle">
+        <div class="midimg">
+            <!--src="{% static 'polls/images/newbank.jpg' %}"-->
+            <img src="{% static 'banking/images/newbank.jpg' %}" alt="banking system">
+        </div>
+        <div class="intro">
+            <div class="text1">Money Transfer Made Easy</div>
+            <div class="text2">Now tranfer money <span>Anytime. Anywhere.</span></div>
+            <div class="buttons">
+                <button type="button" class="montran">Transfer Money</button>
+                <button type="button" class="cusdet">Customer Detail</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="whyus">
+        <div class="card">    
+                 
+                <img src="{% static 'banking/images/piggy.jpg' %}"  >
+                <p>Invest</p>
+            </div>
+        </div>
+        <div class="card ">
+                <img src="{% static 'banking/images/loan.jpg' %}"  >
+                <p>Loan</p>
+        </div>
+        <div class="card ">
+                <img src="{% static 'banking/images/insurance.jpg' %}"  >
+                <p>Insurance</p>
+        </div>
+    </section>
+
+    <section class="aboutus">
+        <div class="abtcon">
+            <div class="namehead">Get to know Us.</div>
+            <div class="name"><span>ABC Bank,</span> forever with you.!</div>
+            <div class="contactimg">
+                <img class="icon" src="{% static 'banking/images/gmail.png' %}"  >
+                <img class="icon" src="{% static 'banking/images/facebook.png' %}"  >
+                <img class="icon" src="{% static 'banking/images/bankicon.png' %}"  >
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span>Created By &#10084;&#65039; Palak Modi | &copy; 2021 </span>
+    </footer>
+</body>
+</html>

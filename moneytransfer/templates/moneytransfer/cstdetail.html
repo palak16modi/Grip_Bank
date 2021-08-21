@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'moneytransfer/cstdetail.css' %}">
+    <style>
+        *{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header{
+    background-color: #00008B;
+    height: 70px;
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+    position: sticky;
+    top:0;
+    opacity: 0.9;
+}
+.headleft{
+    float: left;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+.headright{
+    float: right;
+    padding-top: 20px;
+}
+.headright .links a{
+    padding-right: 30px;
+    font-size: 18px;
+    color: white;
+}
+
+h1{
+    margin-top: 50px;
+    text-align: center;
+    color: blue;
+}
+
+footer{
+    margin-top:29vh;
+    background: #00008B;
+    padding: 10px 23px;
+    text-align: center;
+    color: white;
+}
+
+table{
+    margin-left: 25%;
+}
+
+
+td{
+  background-color: #acd2e4;
+  border: 2px solid #ffffff;
+  margin: 0px;
+  padding: 0px;
+}
+
+th{
+  background-color: #00008B;
+  color:#ffffff;
+  border-bottom-width: 4px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border: 2px solid #ffffff;
+  margin: 0px;
+  padding: 0px;
+  align-items: center;
+  height: 40px;
+}
+
+#eid{
+    width: 100px;
+    padding-left: 5px;
+    height: 40px;
+    text-align: center;
+}
+#enm{
+    width: 500px;
+    padding-left: 5px;
+}
+#bid{
+    width: 100px;
+    padding-left: 5px;
+    margin: 0px 20px;
+}
+
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="headleft">
+            <div>Basic Banking System</div>
+        </div>
+        <div class="headright">
+            <div class="links">
+                    <a href="{% url 'custdetails' %}">Customer Details</a>
+                    
+                    <a href="#">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <h1>Customer List</h1>
+    
+    <table class="center">
+        <tr><th>ID</th></th>
+        <th>NAME</th>
+        <th> </th>
+          {% for e in cus %}
+          <tr>
+              <td id="eid">{{ e.id }}</td>
+              <td id="enm">{{ e.cname }}</td> 
+              <td> <form action='transfer' method='POST'>
+                {% csrf_token %}
+                <button id="bid" class="butt" type='submit' name=iidd value={{e.id}}>transfer</button>
+            </form> </td>            
+          </tr>
+          {% endfor %}
+    </table>
+    
+    
+</body>
+</html>
+
